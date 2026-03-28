@@ -1,4 +1,4 @@
-.PHONY: build test lint fmt clean docker-build docker-buildx docker-push docker-push-ghcr run gh-secrets release help
+.PHONY: build test lint fmt clean docker-build docker-buildx docker-push docker-push-ghcr run gh-secrets release release-patch release-minor release-major help
 
 # Build the project
 build:
@@ -145,3 +145,12 @@ help:
 	@echo "  make release        - Prepare and create a release (requires VERSION=v0.1.0)"
 	@echo "  make dev-setup      - Install development dependencies"
 	@echo "  make gh-secrets     - Deploy secrets to GitHub"
+
+release-patch:
+	vership bump patch
+
+release-minor:
+	vership bump minor
+
+release-major:
+	vership bump major
